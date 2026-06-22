@@ -39,6 +39,10 @@ enemyships.pic: res/gfx/entities/
 	$(GFXCONV) -s 32 -o 16 -u 16 -p -i $<spr_enemies1.png
 	$(GFXCONV) -s 32 -o 16 -u 16 -p -i $<spr_enemies2.png
 
+title.pic: res/gfx/stages/title.png
+	@echo convert map tileset ... $(notdir $@)
+	$(GFXCONV) -s 8 -o 16 -u 16 -e 2 -p -m -t png -i $<
+
 tiles.pic: res/gfx/stages/tiles.png
 	@echo convert map tileset... $(notdir $@)
 	$(GFXCONV) -s 8 -o 80 -u 16 -p -m -i $<
@@ -58,4 +62,4 @@ stage_bg3.pic: res/gfx/stages/stage_bg3.png
 bitmaps : 	fx.pic \
 			airships.pic \
 			enemyships.pic \
-			stage_bg.m16 stage_bg1.pic stage_bg3.pic \
+			title.pic stage_bg.m16 stage_bg1.pic stage_bg3.pic \

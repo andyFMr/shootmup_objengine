@@ -3,6 +3,8 @@
 #include "maps.h"
 
 int gFrames = 0;
+u8 game_state = STATE_TITLE;
+u8 game_mode = MODE_1P;
 
 const u16 BIT_MASK[16] = {
     0x0001, 0x0002, 0x0004, 0x0008, 0x0010, 0x0020, 0x0040, 0x0080,

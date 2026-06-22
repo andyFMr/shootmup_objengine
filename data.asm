@@ -23,4 +23,5 @@ stages_def:
 
 .section ".rodata2" superfree
 .include "res/gfx/stages/tiles_data.as" ; 27456 bytes
+.include "res/gfx/stages/title_data.as" ; 13376 bytes
 .ends

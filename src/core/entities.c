@@ -225,6 +225,9 @@ void p1_update(u8 idx)
 // ==========================================
 void p2_init(u16 xp, u16 yp, u16 type, u16 minx, u16 maxx)
 {
+  if (game_mode != MODE_2P && game_mode != MODE_PERFORMANCE)
+    return;
+
   if (objNew(type, xp, yp) == 0)
     return;
   objGetPointer(objgetid);
@@ -449,12 +452,15 @@ void enemy_update(u8 idx)
   }
   else
   {
-    // Respawn logic - spawn just above the current screen
-    /*en_active_mask |= bit_e;
-    *ox = rand() % 220;
-    *oy = (s16)y_pos - 32;
-    snesobj->xvel = (rand() % 2 == 0) ? 1 : -1;
-    snesobj->yvel = 1;*/
+    if (game_mode == MODE_PERFORMANCE)
+    {
+      // Respawn logic - spawn just above the current screen
+      en_active_mask |= bit_e;
+      *ox = rand() % 220;
+      *oy = (s16)y_pos - 32;
+      snesobj->xvel = (rand() % 2 == 0) ? 1 : -1;
+      snesobj->yvel = 1;
+    }
 
     // Hide it exactly once
     if (oambuffer[sprnum].oamy != 240)

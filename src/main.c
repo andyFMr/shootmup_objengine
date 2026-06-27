@@ -72,7 +72,7 @@ int main(void) {
         else if (cursor_pos == 1)
           game_mode = MODE_2P;
         else if (cursor_pos == 2)
-          game_mode = MODE_PERFORMANCE;
+          game_mode = MODE_BENCHMARK;
 
         game_state = STATE_GAME;
       }
@@ -111,7 +111,7 @@ int main(void) {
       dmaCopyVram((u8 *)&spr_fighters1_til, 0x0000, 0x800);
       dmaCopyVram((u8 *)&spr_fighters2_til, 0x0400, 0x800);
       dmaCopyVram((u8 *)&spr_enemies1_til, 0x0C20, 0x800);
-      dmaCopyVram((u8 *)&spr_fx_til, 0x0800, 0x400);
+      dmaCopyVram((u8 *)&spr_fx_til, 0x0800, 0x800);
       dmaCopyVram((u8 *)&spr_fx_til + 0x1000, 0x0C00, 0x040);
       dmaCopyVram((u8 *)&spr_fx_til + 0x1200, 0x0D00, 0x040);
 
@@ -155,9 +155,11 @@ int main(void) {
         frame_score1 = 0;
         frame_score2 = 0;
 
+        spawn_entities();
         objUpdateAll();
 
         bullets_update();
+        explosion_update();
 
         // ------------------------------------------------------------------
         // SCORE & STATE UPDATES

@@ -1,3 +1,5 @@
+// clang-format off
+
 #ifndef SYSTEM_H
 #define SYSTEM_H
 
@@ -14,7 +16,7 @@ enum GameState {
 enum GameMode {
     MODE_1P = 0,
     MODE_2P = 1,
-    MODE_PERFORMANCE = 2
+    MODE_BENCHMARK = 2
 };
 
 extern u8 game_state;

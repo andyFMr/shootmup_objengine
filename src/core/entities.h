@@ -20,6 +20,7 @@ extern u8 frame_score1, frame_score2;
 
 // Init Engine
 void initEntities(void);
+void spawn_entities(void);
 
 // Player 1
 void p1_init(u16 xp, u16 yp, u16 type, u16 minx, u16 maxx);
@@ -44,5 +45,9 @@ void bullet_p2_init(u16 xp, u16 yp, u16 type, u16 minx, u16 maxx);
 
 // Projectiles
 void bullets_update(void);
+
+// Explosion
+void explosion_update(void);
+void spawn_explosion(s16 x, s16 y);
 
 #endif
